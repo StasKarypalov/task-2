@@ -1,4 +1,5 @@
-import { FileRepositry } from "./FileRepository.js";
+import { FileRepositry } from "./FileRepository";
+
 const filePath = "./books.json";
 
 export class BooksRepository {
@@ -13,7 +14,7 @@ export class BooksRepository {
   }
 
   get(id) {
-    this.books.find((b) => b.id === id);
+    return this.books.find((b) => b.id === id);
   }
 
   update(id, book) {

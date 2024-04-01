@@ -1,7 +1,7 @@
 const express = require("express");
-const { BooksRepository } = require("./repositories/BooksRepository");
-const { BooksService } = require("./services/BooksService");
-const { BooksController } = require("./controllers/BooksController");
+const { BooksRepository } = require("./repositories/booksRepository");
+const { BooksService } = require("./services/booksService");
+const { BooksController } = require("./controllers/booksController");
 const app = express();
 const port = 3500;
 

@@ -8,7 +8,7 @@ export class BooksService {
   }
 
   get(id) {
-    this.booksRepository.get(id);
+    return this.booksRepository.get(id);
   }
 
   update(id, book) {
