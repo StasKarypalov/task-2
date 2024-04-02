@@ -1,11 +1,15 @@
-import { FileRepositry } from "./FileRepository";
-
+const { FileRepositry } = require("./fileRepository");
 const filePath = "./books.json";
 
-export class BooksRepository {
+class BooksRepository {
   constructor() {
     this.fileRepository = new FileRepositry(filePath);
     this.books = this.fileRepository.get();
+
+    this.save = this.save.bind(this);
+    this.get = this.get.bind(this);
+    this.update = this.update.bind(this);
+    this.delete = this.delete.bind(this);
   }
 
   save(book) {
@@ -29,3 +33,5 @@ export class BooksRepository {
     this.fileRepository.save(this.books);
   }
 }
+
+module.exports = { BooksRepository };
