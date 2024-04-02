@@ -16,6 +16,4 @@ app.post("/books", booksController.save);
 app.put("/books/:id", booksController.update);
 app.delete("/books/:id", booksController.delete);
 
-app.listen(port, () => {
-  console.log("Server run");
-});
+app.listen(port, () => console.log(`Server listening on port ${port}.`));
