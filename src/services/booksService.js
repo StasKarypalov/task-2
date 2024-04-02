@@ -1,6 +1,11 @@
-export class BooksService {
+class BooksService {
   constructor(booksRepository) {
     this.booksRepository = booksRepository;
+
+    this.save = this.save.bind(this);
+    this.get = this.get.bind(this);
+    this.update = this.update.bind(this);
+    this.delete = this.delete.bind(this);
   }
 
   save(book) {
@@ -19,3 +24,5 @@ export class BooksService {
     this.booksRepository.delete(id);
   }
 }
+
+module.exports = { BooksService };

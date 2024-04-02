@@ -1,8 +1,13 @@
 const { v4: uuidv4 } = require("uuid");
 
-export class BooksController {
+class BooksController {
   constructor(booksService) {
     this.booksService = booksService;
+
+    this.save = this.save.bind(this);
+    this.get = this.get.bind(this);
+    this.update = this.update.bind(this);
+    this.delete = this.delete.bind(this);
   }
 
   save(req, res) {
@@ -12,6 +17,7 @@ export class BooksController {
   }
 
   get(req, res) {
+    console.log(this)
     const id = req.params.id;
     const book = this.booksService.get(id);
     if (!book) {
@@ -40,3 +46,5 @@ export class BooksController {
     res.status(204).send();
   }
 }
+
+module.exports = { BooksController };
