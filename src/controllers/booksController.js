@@ -8,6 +8,7 @@ class BooksController {
     this.get = this.get.bind(this);
     this.update = this.update.bind(this);
     this.delete = this.delete.bind(this);
+    this.pagination = this.pagination.bind(this);
   }
 
   save(req, res) {
@@ -17,7 +18,6 @@ class BooksController {
   }
 
   get(req, res) {
-    console.log(this)
     const id = req.params.id;
     const book = this.booksService.get(id);
     if (!book) {
@@ -43,6 +43,13 @@ class BooksController {
     const id = req.params.id;
     this.booksService.delete(id);
 
+    res.status(204).send();
+  }
+
+  pagination(req,res){
+    const page = parseInt(req.params.page) || 1;
+    const pageSize = parseInt(req.params.pageSize) || 5;
+    this.booksService.pagination(page, pageSize);
     res.status(204).send();
   }
 }

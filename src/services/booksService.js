@@ -6,6 +6,7 @@ class BooksService {
     this.get = this.get.bind(this);
     this.update = this.update.bind(this);
     this.delete = this.delete.bind(this);
+    this.pagination = this.pagination.bind(this);
   }
 
   save(book) {
@@ -22,6 +23,10 @@ class BooksService {
 
   delete(id) {
     this.booksRepository.delete(id);
+  }
+
+  pagination(page,pageSize){
+    return this.booksRepository.pagination(page,pageSize);
   }
 }
 
